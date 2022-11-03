@@ -61,4 +61,5 @@ class StudentController extends Controller
         $student = Student::find($id)->delete();
         return redirect()->route('students.index');
     }
+    
 }

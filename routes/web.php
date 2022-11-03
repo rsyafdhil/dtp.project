@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StudentController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,7 @@ Route::put('/students/{id}', [StudentController::class, 'update'])->name('studen
 
 Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
-
+Route::get('/kelas', [ClassController::class, 'index'])->name('kelas.index');
 
 
 require __DIR__.'/auth.php';
