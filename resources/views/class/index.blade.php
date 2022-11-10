@@ -8,13 +8,12 @@
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Nama Kelas</th>
+                          <th>Kelas</th>
                           <th class="w-1"></th>
                         </tr>
                       </thead>
                       <tbody>
                         @foreach($kelas as $kelas)
-
                         <tr>
                         <td>{{$kelas->id}}</td>
                         <td>{{$kelas->nama_kelas}}</td>
