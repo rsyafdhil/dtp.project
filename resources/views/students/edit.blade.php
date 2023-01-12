@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('students.update', $student->id) }}" method="post">
+        <form action="{{ route('students.update', $student->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
             <div class="mb-3">
@@ -15,7 +15,17 @@
                     @error('name')
                         <span class="invalid-feedback">{{$message}}</span>
                     @enderror
-            </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Photo</label>
+                    <img src="{{ asset('storage/'.$student->photo) }}" width="100px" alt="">
+                    <input type="file" name="photo" id="" class="form-control @error('photo')
+                        is-invalid
+                    @enderror" value="{{ old('photo') }}">
+                    @error('photo')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="mb-3">
                 <label for="" class="form-label">Telepon</label>
                 <input type="text" name="phone_number" class="form-control @error('phone_number') 
@@ -34,6 +44,7 @@
                         <span class="invalid-feedback">{{$message}}</span>
                     @enderror
             </div>
+            <div class="mb-3">
             <label for="" class="form-label">Kelas</label>
             <input type="text" name="class" class="form-control @error('class') 
             is-invalid @enderror" value="{{$student->class}}" placeholder="Insert Class"

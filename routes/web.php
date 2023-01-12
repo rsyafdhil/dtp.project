@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('./auth/login');
 });
 
 Route::get('/dashboard', function () {
@@ -28,19 +28,20 @@ Route::get('/user', function () {
     return view('user');
 });
 
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+// Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
-Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+// Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
-Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+// Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
-Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
+// Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
 
-Route::put('/edit/{id}', [StudentController::class, 'update'])->name('students.update');
+// Route::put('/edit/{id}', [StudentController::class, 'update'])->name('students.update');
 
-Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+// Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
-Route::get('/kelas', [ClassController::class, 'index'])-> name('class.index');
+// Route::get('/kelas', [ClassController::class, 'index'])-> name('class.index');
 
+Route::resource('students', StudentController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

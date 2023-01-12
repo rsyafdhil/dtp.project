@@ -62,7 +62,6 @@
           @yield('content')
           </div>
           </div>
-        @include('templates.partials.footer')
         </div>
       </div>
       <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
